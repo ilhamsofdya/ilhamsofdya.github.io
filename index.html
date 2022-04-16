@@ -1,221 +1,39 @@
-
 <!DOCTYPE HTML>
-<head>
-<meta name="google-site-verification" content="2NwCLW-ak-mrVHPhdSsJ9KBoML_nkRUqkRvNxyzw2SA" />
-<meta name="google-site-verification" content="K8BVKZrxNyr7t0rgA19KvWqJYcmJ6FYPdOiY2SnZn5A" />
-<meta name="google-site-verification" content="EiBvao9Pdk9vO_bwZ7nLuosRTG-GMX_SIY5l946X4X0" />
-<meta name="msvalidate.01" content="56522D4D2595E2B2377EE0390ADE7765" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<?php
 
-<title>Free File Sharing Services - Sfile.mobi</title>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
-<meta name="description" content="Sfile.mobi is Free file sharing service, you will get paid from each downloaded file you uploaded on sfile.mobi." />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Free File Sharing Services - Sfile.mobi" />
-<meta property="og:description" content="Sfile.mobi is Free file sharing service, you will get paid from each downloaded file you uploaded on sfile.mobi." />
-<meta property="og:url" content="https://sfile.mobi/" />
-<meta property="og:site_name" content="sfile.mobi" />
-<meta property="fb:app_id" content="1971214313162948" />
-<meta name="theme-color" content="#2196F3 ">
-<link rel="stylesheet" href="/includes/main-min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="icon" sizes="192x192" href="/icon/sfile-icon-192x192.png"/>
-<link rel="shortcut icon" href="/icon/sfile-favicon.png" type="image/x-icon" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+echo 'Masukkan link : ';
+$link = trim(fgets(STDIN));
 
+$ch = curl_init();
 
+curl_setopt($ch, CURLOPT_URL, 'https://unshorten.it/main/get_long_url');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, "short-url=".$link."&csrfmiddlewaretoken=X8wPmHNiOVoTkY22cIN0rFFZd05V9jhT6t8nnkMV0Sio0ngYLzh7oTCUz0U7RcnK");
+curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 
-<style>
-/* raleway-regular - latin */
-@font-face {
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Raleway'), local('Raleway-Regular'),
-       url('/includes/fonts/raleway-v14-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('/includes/fonts/raleway-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-body, html {
-    height: 100%;
-    line-height: 1.8;
-}
-.w3-bar .w3-button {
-    padding: 16px;
-}
-</style>
-</head>
-<body>
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-blue w3-card-2" id="myNavbar">
-    <a href="https://sfile.mobi" class="w3-bar-item w3-button w3-wide"><img src="/img/Sfile-Logo.svg" alt="Sfile.mobi" style="max-height:25px;"/></a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-      <a href="https://sfile.mobi" class="w3-bar-item w3-button"><i class="fa fa-cloud-upload" aria-hidden="true"></i> UPLOAD</a>
-      <a href="https://sfile.mobi/uploads.php" class="w3-bar-item w3-button"><i class="fa fa-list-alt" aria-hidden="true"></i> Latest Upload</a>
-      <a href="https://sfile.mobi/top.php" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Trending Files</a>
-      <a href="https://sfile.mobi/login.php" class="w3-bar-item w3-button"><i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN</a>
-      <a href="https://sfile.mobi/registration.php" class="w3-bar-item w3-button"><i class="fa fa-user-plus"></i> REGISTER</a>
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-blue w3-card-2 w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16"></a>
-    <a href="https://sfile.mobi" class="w3-bar-item w3-button"><i class="fa fa-cloud-upload" aria-hidden="true"></i> UPLOAD</a>
-      <a href="https://sfile.mobi/uploads.php" class="w3-bar-item w3-button"><i class="fa fa-list-alt" aria-hidden="true"></i> Latest Upload</a>
-      <a href="https://sfile.mobi/top.php" class="w3-bar-item w3-button"><i class="fa fa-line-chart" aria-hidden="true"></i> Trending Files</a>
-      <a href="https://sfile.mobi/login.php" class="w3-bar-item w3-button"><i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN</a>
-      <a href="https://sfile.mobi/registration.php" class="w3-bar-item w3-button"><i class="fa fa-user-plus"></i> REGISTER</a>
-</nav>
-<header class="w3-container w3-blue w3-center" style="padding:128px 16px">
-<div class="upload">
-<div id="uploadform" style="display:block">
-<form id="upload_form" enctype="multipart/form-data" method="post">Guest Upload 100MB Limit<br>
-<input type="file" name="file1" id="file1">
-<br/>File Category<br>
-<select id="cat" name="cat"><option value="4">Select Category</option><option value="1">APK</option><option value="6">Config</option><option value="3">Document</option><option value="2">Image</option><option value="4">Other</option></select>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<center>
-<p class="g-recaptcha" data-sitekey="6Lf6wb8UAAAAAE0AzD4Q84lMNRTleM6bpIcBjwsC" data-callback="enableBtn">
-</center>
-<p><small>By uploading files, you agree to the <a href="/terms.php" target="_blank" style="color: #89c9ff">TOS</a></small>
-<p><input type="button" id="uplbtn" value="Upload File" onclick="uploadFile()" class="w3-button w3-indigo" disabled="disabled">
-<div id="progress-bar">
-<progress id="progressBar" value="0" max="100" style=" width:250px; height: 15px; border-radius: 2px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;">
-</progress>
-</div>
-</div>
-<span id="status"></span><br>
-<span id="loaded_n_total"></span></form>
-</header></div>
-<script>
-function _(variable_0) {
-    return document["getElementById"](variable_0)
-}
+$headers = array();
+$headers[] = 'Authority: unshorten.it';
+$headers[] = 'Sec-Ch-Ua: \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"99\"';
+$headers[] = 'Accept: */*';
+$headers[] = 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8';
+$headers[] = 'X-Requested-With: XMLHttpRequest';
+$headers[] = 'Sec-Ch-Ua-Mobile: ?0';
+$headers[] = 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.94 Safari/537.36';
+$headers[] = 'Sec-Ch-Ua-Platform: \"Linux\"';
+$headers[] = 'Origin: https://unshorten.it';
+$headers[] = 'Sec-Fetch-Site: same-origin';
+$headers[] = 'Sec-Fetch-Mode: cors';
+$headers[] = 'Sec-Fetch-Dest: empty';
+$headers[] = 'Referer: https://unshorten.it/';
+$headers[] = 'Accept-Language: en-US,en;q=0.9';
+$headers[] = 'Cookie: csrftoken=SAJiZpT2n97WTxsloCMQy1avV25MDgJ21VlQ02SFz61rzWGhXtgXvf7qh2UYl9PT; _ga=GA1.2.1666876052.1650094698; _gid=GA1.2.913836666.1650094699; _gat_UA-24369154-1=1; __gads=ID=a16dcb0591b1c6e7-22154500ffd10032:T=1650094699:RT=1650094699:S=ALNI_MY2f9i_DwvXkOuCdIBWkxQm8crQMw';
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-function uploadFile() {
-    var variable_1 = _("file1")["files"][0];
-    var variable_2 = new FormData();
-    variable_2["append"]("file1", variable_1);
-    variable_2["append"]("cat", $("#cat")["val"]());
-    variable_2["append"]("des", $("#text")["val"]());
-    variable_2["append"]("pas", $("#pas")["val"]());
-    var variable_3 = new XMLHttpRequest();
-    variable_3["upload"]["addEventListener"]("progress", progressHandler, false);
-    variable_3["addEventListener"]("load", completeHandler, false);
-    variable_3["addEventListener"]("error", errorHandler, false);
-    variable_3["addEventListener"]("abort", abortHandler, false);
-    variable_3["open"]("POST", "guest_remote_parser.php");
-    variable_3["send"](variable_2)
-}
-function formatBytes(a,b=2){if(0===a)return"0 Bytes";const c=0>b?0:b,d=Math.floor(Math.log(a)/Math.log(1024));return parseFloat((a/Math.pow(1024,d)).toFixed(c))+" "+["Bytes","KB","MB","GB","TB","PB","EB","ZB","YB"][d]}
+$result = curl_exec($ch);
+$url = json_decode($result)->long_url;
+$hasil = strtok($url,'?');
+echo $hasil;
+echo "\n";
 
-function progressHandler(variable_4) {
-    var variable_5 = (variable_4["loaded"] / variable_4["total"]) * 100;
-    _("progressBar")["value"] = Math["round"](variable_5);
-	_("loaded_n_total").innerHTML = formatBytes(event.loaded) + "/" + formatBytes(event.total);
-    _("status")["innerHTML"] = "Uploading... please wait";
-	if (Math["round"](variable_5) == 100) {
-	_("status")["innerHTML"] = "Storing to server... please wait";
-	} 
-}
-
-function completeHandler(variable_4) {
-    _("status")["innerHTML"] = variable_4["target"]["responseText"];
-	_("loaded_n_total").innerHTML = "";
-    _("progressBar")["value"] = 0;
-    _("file1")["value"] = "";
-    _("uploadform")["style"]["display"] = "none"
-}
-
-function errorHandler(variable_4) {
-    _("status")["innerHTML"] = "Upload Failed"
-}
-
-function abortHandler(variable_4) {
-    _("status")["innerHTML"] = "Upload Aborted"
-}
- function enableBtn(){
-    document.getElementById("uplbtn").disabled = false;
-   }
-</script>
-<script>
-document["getElementById"]("text")["addEventListener"]("keyup", function(variable_0) {
-    var str = document["getElementById"]("text")["value"];
-	var res = str.toLowerCase();
-    for (var word = 0; word < banned["length"]; word++) {
-        if (res["search"](banned[word]) !== -1) {
-            alert(banned[word] + " word is not allowed!")
-			var lastIndex = str.lastIndexOf(" ");
-			str = str.substring(0, lastIndex);
-        };
-        var notallowed = new RegExp(banned[word]);
-        str = str["replace"](notallowed, "")
-    };
-    document["getElementById"]("text")["value"] = str
-}, false)
-</script>
-<div class="w3-container w3-row w3-center w3-indigo w3-padding-64">
-<h2>Search Files</h2>
-<form action="search.php"><input type="search" name="q" size="15" value=""/></br>
-<button class="w3-button w3-blue w3-large w3-margin-top" type="submit" name="search" value="Search"/>Search</div>
-<div class="w3-container w3-row w3-blue w3-padding-64">
-<div class="w3-row-padding">
-<div class="w3-half">
-<div class="w3-card w3-white">
-<div class="w3-container w3-blue">
-<h3>Sfile Menu</h3>
-</div>
-<div class="list"><h3 class="w3-text-blue"> <i class="fa fa-list-alt" aria-hidden="true"></i> <a href="https://sfile.mobi/uploads.php"> Latest uploads</h3></a></div>
-<div class="list"><h3 class="w3-text-blue"> <i class="fa fa-line-chart" aria-hidden="true"></i> <a href="https://sfile.mobi/top.php"> Trending Files</h3></a></div>
-<div class="list"><h3 class="w3-text-blue"> <i class="fa fa-search-plus" aria-hidden="true"></i> <a href="https://sfile.mobi/search.php"> Search Files</h3></a></div>
-<div class="list"><h3 class="w3-text-blue"> <i class="fa fa-sign-in" aria-hidden="true"></i> <a href="https://sfile.mobi/login.php"> Login</h3></a></div>
-<div class="list"><h3 class="w3-text-blue"> <i class="fa fa-user-plus" aria-hidden="true"></i> <a href="https://sfile.mobi/registration.php"> Register</h3></a></div></p>
-</div></div>
-
-<div class="w3-half">
-<div class="w3-card w3-white">
-<div class="w3-container w3-blue">
-<h3>File Categories</h3>
-</div><div class="list"><h3 class="w3-text-blue"><i class="fa fa-folder-open-o" aria-hidden="true"></i> <a href="https://sfile.mobi/loads/1/APK.html">APK</a> (61483)</h3></div><div class="list"><h3 class="w3-text-blue"><i class="fa fa-folder-open-o" aria-hidden="true"></i> <a href="https://sfile.mobi/loads/6/Config.html">Config</a> (279782)</h3></div><div class="list"><h3 class="w3-text-blue"><i class="fa fa-folder-open-o" aria-hidden="true"></i> <a href="https://sfile.mobi/loads/3/Document.html">Document</a> (25541)</h3></div><div class="list"><h3 class="w3-text-blue"><i class="fa fa-folder-open-o" aria-hidden="true"></i> <a href="https://sfile.mobi/loads/2/Image.html">Image</a> (3788)</h3></div><div class="list"><h3 class="w3-text-blue"><i class="fa fa-folder-open-o" aria-hidden="true"></i> <a href="https://sfile.mobi/loads/4/Other.html">Other</a> (49101)</h3></div>
-</div></div></div></div>
-<script src="/includes/bw.js"></script>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//sfile.mobi/includes/analytics.js','ga');
-
-  ga('create', 'UA-103187360-1', 'auto');
-  ga('send', 'pageview');
-
-
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
-
-function w3_open() {
-    if (mySidebar.style.display === "block") {
-        mySidebar.style.display = "none";
-    } else {
-        mySidebar.style.display = "block";
-    }
-}
-
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-</script>
-<div class="menu" align="center">
-<a href="/memberpayment.php">Member Payment</a> | <a href="/privacy.php">Privacy Policy</a> | <a href="/terms.php">Terms</a> | <a href="/contact.php">Contact</a>
-</div>
-<div class="menu" align="center">&copy; 2022, <a href="https://sfile.mobi">sfile.mobi</a><br/>Free file sharing service</div></div>
-<!-- </body> -->
-</html>
+curl_close($ch);

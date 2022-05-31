@@ -1,17 +1,31 @@
-<!DOCTYPE html>
+<html>
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-   <title>Belajar Form PHP</title>
+<title>Output</title>
 </head>
- 
+
 <body>
-   <h2>Tutorial Belajar Form HTML - PHP </h2>
+
+
 <?php
-   echo $_GET['nama'];
-   echo "<br />";
-   echo $_GET['email'];
+$nama  = $_POST ["nama"];
+$email  = $_POST ["email"];
 ?>
-   </form>
+
+
+<table border="1" align="center">
+<tr>
+     <td width="117">Nama</td>
+     <td width="14">:</td>
+     <td width="218"><? echo " $nama"   ?></td>
+</tr>
+<tr>
+     <td>Email</td>
+     <td>:</td>
+     <td><? echo " $emailn"  ?></td>
+</tr>
+<tr>
+     <td align="center" colspan="3"><a href="index.html.php">BACK </a></td>
+</tr>
+</table>
 </body>
 </html>
-

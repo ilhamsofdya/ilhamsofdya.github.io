@@ -26,7 +26,7 @@
 
   <h2>Bypass Link</h2>
 
-  <form action="/proses.php">
+  <form action="proses.php" method="POST">
 
     <div class="form-group">
 

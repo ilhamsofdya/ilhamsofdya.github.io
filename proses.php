@@ -13,16 +13,23 @@
 </head>
 <body>
 <?php 
-    //proses yang dapat terjadi
-    //mengambil data dari parameter input halaman  biodata
-    $link = $_POST['link'];
+$path = "https://api.telegram.org/bot5534137874:AAG0s-FK0w1IJTZ109HMknxfTucSZKXh8nw;
+
+$update = json_decode(file_get_contents("php://input"), TRUE);
+
+$chatId = $update["message"]["chat"]["id"];
+$message = $update["message"]["text"];
+
+
+if (strpos($message, "/weather") === 0) {
+$location = substr($message, 9);
 
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, 'https://unshorten.it/main/get_long_url');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, "short-url=".$link."&csrfmiddlewaretoken=X8wPmHNiOVoTkY22cIN0rFFZd05V9jhT6t8nnkMV0Sio0ngYLzh7oTCUz0U7RcnK");
+curl_setopt($ch, CURLOPT_POSTFIELDS, "short-url=".$location."&csrfmiddlewaretoken=X8wPmHNiOVoTkY22cIN0rFFZd05V9jhT6t8nnkMV0Sio0ngYLzh7oTCUz0U7RcnK");
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip, deflate');
 
 $headers = array();
@@ -47,6 +54,10 @@ $result = curl_exec($ch);
 $url = json_decode($result)->long_url;
 $bypass = strtok($url,'?');
 curl_close($ch);
+  
+
+file_get_contents($path."/sendmessage?chat_id=".$chatId."&text=Here's the weather in ".$location.": ". $bypass);
+}
 
     echo "$bypass";
     //disini ditulis proses lain yang dapat dilakukan seperti

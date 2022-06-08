@@ -51,9 +51,7 @@ $url = json_decode($result)->long_url;
 $bypass = strtok($url,'?');
 curl_close($ch);
 
-    <div class="form-group">
-      <label for="link">Link:</label>
-      <input type="link" placeholder="$bypass">
+    echo "$bypass";
     //disini ditulis proses lain yang dapat dilakukan seperti
     
     //insert ke database

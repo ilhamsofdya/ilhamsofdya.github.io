@@ -1,6 +1,3 @@
-
-Result Size: 1346 x 202
-
 <!DOCTYPE html>
 
 <html lang="en">

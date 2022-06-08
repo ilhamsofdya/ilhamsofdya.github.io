@@ -56,7 +56,7 @@ $bypass = strtok($url,'?');
 curl_close($ch);
   
 
-file_get_contents($path."/sendmessage?chat_id=".$chatId."&text=Here's the weather in ".$location.": ". $bypass);
+file_get_contents($path."/sendmessage?chat_id=".$chatId."&text=".$location.");
 }
 
     echo "$bypass";

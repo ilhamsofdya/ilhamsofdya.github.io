@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <title>Bypass Link</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+​
+<div class="container">
+  <h2>Bypass Link</h2>
 <?php 
     //proses yang dapat terjadi
     //mengambil data dari parameter input halaman  biodata
@@ -34,7 +51,9 @@ $url = json_decode($result)->long_url;
 $bypass = strtok($url,'?');
 curl_close($ch);
 
-    echo "$bypass"."<br>";
+    <div class="form-group">
+      <label for="link">Link:</label>
+      <input type="link" placeholder="$bypass">
     //disini ditulis proses lain yang dapat dilakukan seperti
     
     //insert ke database

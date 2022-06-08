@@ -31,10 +31,10 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 $result = curl_exec($ch);
 $url = json_decode($result)->long_url;
-
+$bypass = strtok($url,'?');
 curl_close($ch);
 
-    echo "Nama = $url"."<br>";
+    echo "$bypass"."<br>";
     //disini ditulis proses lain yang dapat dilakukan seperti
     
     //insert ke database
